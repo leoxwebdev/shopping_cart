@@ -8,7 +8,9 @@ import ItemListContainer  from '../utils/item-list-container'
 @connect( (store) => {
     return{
       cartItems: store.cartItemsReducer.cartItems,
-      fetched: store.cartItemsReducer.fetched
+      fetched: store.cartItemsReducer.fetched,
+      cartItemsCount: store.cartItemsReducer.cartItemsCount,
+      total: store.cartItemsReducer.total
     }
 })
 export default class HomePage extends Component {
@@ -20,7 +22,7 @@ export default class HomePage extends Component {
     render(){
         var movieListElement = [];
         if(this.props.cartItems.length > 0){
-            movieListElement = <ItemListContainer items={this.props.cartItems} />
+            movieListElement = <ItemListContainer {...this.props} items={this.props.cartItems} />
         }
 
         return(
@@ -28,7 +30,7 @@ export default class HomePage extends Component {
                 <h2 className="page-header">YOUR SHOPPING BAG</h2>
                 <div className="row fluid-container cart-header">
                     <div className="col-md-8">
-                        <h3> Size</h3>
+                        <h3> {this.props.cartItemsCount } Items</h3>
                     </div>
 
                     <div className="col-md-4">

@@ -1,4 +1,6 @@
 export default function reducer(state={
+    cartItemsCount: 0,
+    total: 0,
     cartItems: [],
     fetching: false,
     fetched: false,
@@ -29,10 +31,43 @@ export default function reducer(state={
               ...state,
               fetching: false,
               fetched: true,
+              cartItemsCount: action.payload.results.length,
               cartItems: action.payload.results
           }
           break;
       }
+
+      case "ADD_CART_ITEM_TOTAL": {
+          return {
+              ...state,
+              fetching: false,
+              fetched: true,
+              total: state.total + action.payload
+          }
+          break;
+      }
+
+      case "DEDUCT_CART_ITEM_TOTAL": {
+          return {
+              ...state,
+              fetching: false,
+              fetched: true,
+              total: state.total - action.payload
+          }
+          break;
+      }
+
+
+      case "TOTAL_NO_OF_CART_ITEM_TOTAL": {
+          return {
+              ...state,
+              fetching: false,
+              fetched: true,
+              cartItemsCount: action.payload
+          }
+          break;
+      }
+
     }
     return state;
 }
