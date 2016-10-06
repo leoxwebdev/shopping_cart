@@ -1,0 +1,64 @@
+.movie_tile{
+  border: 1px solid #eee;
+  border-radius: 5px;
+  padding: 8px;
+  span{
+      padding: 10px;
+  }
+}
+
+.placeholder img{
+  border-radius: 0;
+}
+
+
+.over-all-count{
+  margin: 15px;
+  border: 1px solid #eee;
+  width: 30% !important;
+  height: 110px;
+  div.row{
+    margin-top: 28px;
+  }
+}
+
+.over-all-count:nth-child(1) {
+  background: yellow;
+}
+
+.over-all-count:nth-child(3){
+  background: greenyellow;
+}
+
+.over-all-count:nth-child(2){
+    background: aquamarine;
+}
+
+
+
+.cart-header{
+  margin-top: -22px;
+    border-bottom: 1px solid #eee;
+}
+
+
+.item-container{
+  margin:25px 0px !important;
+  border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+}
+
+
+.pull-center{
+  text-align: center !important;
+}
+
+
+.qty{
+  width: 100% !important;
+  text-align: center !important;
+}
+
+.no-margin{
+  margin-top: 0px !important;
+}

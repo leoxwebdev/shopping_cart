@@ -1,0 +1,70 @@
+{
+  "name": "shopping_cart",
+  "version": "1.0.0",
+  "description": "Simpe Shopping cart application using ReactJs and Redux",
+  "main": "app.js",
+  "scripts": {
+    "build": "webpack --debug",
+    "start": "webpack-dev-server --progress --profile --colors --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/venkateshvangala/shopping_cart.git"
+  },
+  "keywords": [
+    "Reactjs",
+    "redux",
+    "thunk",
+    "combinereducers",
+    "reducers"
+  ],
+  "author": "Venkatesh Kumar V",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/venkateshvangala/shopping_cart/issues"
+  },
+  "homepage": "https://github.com/venkateshvangala/shopping_cart#readme",
+  "dependencies": {
+    "autoprefixer": "^6.5.0",
+    "axios": "^0.14.0",
+    "babel-plugin-syntax-decorators": "^6.13.0",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-preset-stage-2": "^6.13.0",
+    "bootstrap-sass": "^3.3.7",
+    "css-loader": "^0.25.0",
+    "exports-loader": "^0.6.3",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "font-awesome": "^4.6.3",
+    "font-awesome-webpack": "0.0.4",
+    "html-webpack-plugin": "^2.22.0",
+    "imports-loader": "^0.6.5",
+    "jquery": "^3.1.1",
+    "less": "^2.7.1",
+    "less-loader": "^2.2.3",
+    "node-sass": "^3.10.0",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "react-redux": "^4.4.5",
+    "react-router": "^2.8.1",
+    "redux": "^3.6.0",
+    "redux-logger": "^2.6.1",
+    "redux-promise-middleware": "^4.0.0",
+    "redux-thunk": "^2.1.0",
+    "resolve-url-loader": "^1.6.0",
+    "sass-loader": "^4.0.2",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack-dev-server": "^1.16.1"
+  },
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-react": "^6.11.1",
+    "bootstrap-loader": "^1.2.0",
+    "webpack": "^1.13.2"
+  }
+}
