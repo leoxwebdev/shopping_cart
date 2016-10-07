@@ -2,23 +2,29 @@ import React, { Component } from 'react';
 import render from 'react-dom';
 import { Link } from 'react-router'
 import Input from './price_tags'
+import ProductDetails from './product-details'
 import {ModalContainer, ModalDialog} from 'react-modal-dialog';
 
 export default class ItemListContainer extends Component {
 
     state = {
       isShowingModal: false,
+      productDetails: null
     }
 
-    handleClick = () => this.setState({isShowingModal: true})
+    handleClick = (id, event) => {
+      console.log(id + "----" + event)
+      this.setState({
+        isShowingModal: true,
+        productDetails: this.props.cartItems[id-1]
+      })
+    }
     handleClose = () => this.setState({isShowingModal: false})
 
     render(){
       var itemListElement = [];
       if(this.props.items.length > 0){
-            var total = 0;
            itemListElement = this.props.items.map( (item, index) => {
-            total += item.p_price
              return <div key={item.p_id} className="row fluid-container item-container">
                 <div className="col-md-8">
                     <div className="col-md-3">
@@ -29,14 +35,13 @@ export default class ItemListContainer extends Component {
                         <h4 className="list-group-item-text">Style #: {item.p_style ? item.p_style : '' } </h4>
                         <h4 className="list-group-item-text">Color: {item.p_variation ? item.p_variation : '' }</h4>
                         <br/><br/>
-                        <a onClick={this.handleClick}> <span>EDIT </span>
+                        <a onClick={this.handleClick.bind(this, item.p_id)}> <span>EDIT </span>
                           {
                             this.state.isShowingModal &&
-                            <ModalContainer onClose={this.handleClose}>
+                            <ModalContainer onClose={this.handleClose} >
                               {
-                                <ModalDialog onClose={this.handleClose}>
-                                  <h1>Dialog Content</h1>
-                                  <p>More Content. Anything goes here</p>
+                                <ModalDialog className="my-modal" onClose={this.handleClose}>
+                                      <div className="row"> <ProductDetails itemDetails={this.state.productDetails}/> </div>
                                 </ModalDialog>
                               }
                             </ModalContainer>
