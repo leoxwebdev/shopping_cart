@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
 import render from 'react-dom'
+import _ from 'underscore-node'
 
 export default class ProductDetails extends Component{
 
   state = {
-      color: null
+      color: null,
+      size: "s",
+      quantity: 1
    }
 
    handleColorChange(color){
@@ -13,8 +16,24 @@ export default class ProductDetails extends Component{
       })
    }
 
+   setSize(event){
+     this.setState({
+       size: event.target.value
+     })
+   }
+
+   setQuantity(){
+     this.setState({
+       quantity: event.target.value
+     })
+   }
+
    updateCartItems(id, event){
-    //  alert(id)
+      let item = _.findWhere(this.props.cartItems, {p_id: id})
+      var cartItems = _.without(this.props.cartItems, item)
+      item.p_selected_size.code = this.state.size
+      item. p_quantity = quantity
+      item.p_variation = this.state.color
    }
 
     render(){
@@ -40,15 +59,15 @@ export default class ProductDetails extends Component{
                     <br/>
                 </div>
                 <div className="row">
-                        <select className="row" style={{width: '100px', height: '45px'}}>
+                        <select className="row" style={{width: '100px', height: '45px'}} onChange={this.setSize.bind(this)}>
                          <option> Size </option>
                         {
                           this.props.itemDetails.p_available_options.sizes.map( (size, index) => {
-                              return <option> {size.name} </option>
+                              return <option value={size.code}> {size.name} </option>
                           })
                         }
                       </select>
-                      <select className="row" style={{width: '100px', height: '45px', marginLeft: '30px'}}>
+                      <select className="row" style={{width: '100px', height: '45px', marginLeft: '30px'}} onChange={this.setQuantity.bind(this)}>
                         <option> Qty </option>
                         <option> 1 </option>
                         <option> 2 </option>

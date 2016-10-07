@@ -54,7 +54,7 @@ export default class ItemListContainer extends Component {
                             <ModalContainer onClose={this.handleClose} >
                               {
                                 <ModalDialog className="my-modal" onClose={this.handleClose}>
-                                      <div className="row"> <ProductDetails itemDetails={this.state.productDetails}/> </div>
+                                      <div className="row"> <ProductDetails {...this.props} itemDetails={this.state.productDetails}/> </div>
                                 </ModalDialog>
                               }
                             </ModalContainer>
