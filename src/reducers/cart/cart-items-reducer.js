@@ -68,6 +68,17 @@ export default function reducer(state={
           break;
       }
 
+      case "UPDATE_CART_ITEMS": {
+          return {
+              ...state,
+              fetching: false,
+              fetched: true,
+              cartItemsCount: action.payload.length,
+              cartItems: action.payload
+          }
+          break;
+      }
+
     }
     return state;
 }

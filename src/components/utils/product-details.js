@@ -13,6 +13,10 @@ export default class ProductDetails extends Component{
       })
    }
 
+   updateCartItems(id, event){
+    //  alert(id)
+   }
+
     render(){
         if(this.props.itemDetails){
           const item = this.props.itemDetails;
@@ -55,7 +59,7 @@ export default class ProductDetails extends Component{
                       </select>
                 </div>
                 <br/><br/>
-                <button className="btn btn-primary"> Edit </button>
+                <button className="btn btn-primary" onClick={this.updateCartItems.bind(this, item.p_id)}> Save </button>
                 <br/> <br/>
                 <a href="#"> See product details </a>
               </div>

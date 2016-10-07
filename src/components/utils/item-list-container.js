@@ -12,8 +12,21 @@ export default class ItemListContainer extends Component {
       productDetails: null
     }
 
+    handleRemoveItem(id, event){
+      let itemsList = [];
+      this.props.cartItems.map( (cartItem) => {
+          if(cartItem["p_id"] != id){
+              itemsList.push(cartItem)
+          }else{
+            this.props.dispatch({type: "TOTAL_NO_OF_CART_ITEM_TOTAL", payload: (this.props.cartItemsCount - (cartItem.p_quantity))})
+            this.props.dispatch({type: "DEDUCT_CART_ITEM_TOTAL", payload: (cartItem.p_quantity * cartItem.p_price) })
+          }
+          return cartItem
+      })
+      this.props.dispatch({ "type": "UPDATE_CART_ITEMS", payload: itemsList })
+    }
+
     handleClick = (id, event) => {
-      console.log(id + "----" + event)
       this.setState({
         isShowingModal: true,
         productDetails: this.props.cartItems[id-1]
@@ -47,7 +60,7 @@ export default class ItemListContainer extends Component {
                             </ModalContainer>
                           }
                         </a>|
-                        <a href="#" > REMOVE </a> |
+                        <a href="#" onClick={this.handleRemoveItem.bind(this, item.p_id)} > REMOVE </a> |
                         <a href="#" > SAVE FOR LATER </a>
                      </div>
                 </div>
